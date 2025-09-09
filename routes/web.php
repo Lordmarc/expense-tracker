@@ -4,13 +4,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
+    
+    Route::get('/', 'welcome')->name('welcome');
     Route::get('/login', 'showLogin')->name('show.login');
     Route::get('/register', 'showRegister')->name('show.register');
     Route::post('/login', 'login')->name('login');

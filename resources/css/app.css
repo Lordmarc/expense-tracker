@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,10 +6,76 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
 }
 
+
+/* Custom CSS */
+
+/* Landing Page */
+
+.hero {
+    @apply min-h-screen w-full flex justify-center  bg-[url('/public/images/background.png')] bg-contain bg-no-repeat bg-center bg-blue-50;
+}
+
+.main-container {
+    @apply w-full h-full flex flex-col;
+
+    nav {
+        @apply p-2 flex justify-end items-center gap-2;
+    }
+
+    h1 {
+        @apply mr-auto font-bold text-2xl text-blue-400;
+    }
+    .btn {
+        @apply flex justify-center rounded bg-white items-center w-30 h-10 shadow hover:bg-gray-200;
+    }
+
+    main {
+        @apply p-5 flex flex-col justify-start items-start flex-grow;
+
+        h1 {
+            @apply font-semibold text-5xl text-blue-400 tracking-tight;
+        }
+        p {
+            @apply italic text-3xl text-blue-300 font-bold;
+        }
+    }
+}
+
+.form-container {
+    @apply flex justify-center items-center w-full h-full; 
+
+  
 form {
-    @apply flex flex-col;
+ @apply bg-white/70 backdrop-blur-sm p-4 rounded-lg min-w-80 flex flex-col gap-2;
+}
+
+h2 {
+    @apply text-2xl text-center mb-3
+}
+a {
+    @apply text-blue-500;
+}
+
+input {
+    @apply block w-full px-3 py-2 bg-white rounded-lg 
+}
+
+.forgot {
+    @apply block w-full text-blue-500 text-end underline
+}
+
+.btn {
+    @apply block w-full bg-white rounded px-3 py-2 cursor-pointer hover:bg-sky-100 mt-1
+}
+
+
+}
+
+.content-container {
+    @apply min-h-screen bg-sky-100;
 }
