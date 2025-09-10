@@ -1,5 +1,6 @@
 <x-layout>
-  <form action="{{ route('expenses.update', $expense) }}" method="POST">
+<div class="h-full mx-auto w-full flex justify-center items-center">
+   <form action="{{ route('expenses.update', $expense) }}" method="POST" class="edit-form">
     @csrf
     
     <h2>Edit Expense</h2>
@@ -18,8 +19,10 @@
 
     <!-- Expense Date -->
     <label for="date">Date:</label>
-    <input type="date" name="date" required>
+    <input type="date" name="date" required value="{{ $expense->date }}">
 
-    <button type="submit">Update Expense</button>
+    <button type="submit" class="btn-edit">Update Expense</button>
   </form>
-</x-layout>
+</div>
+ 
+</x-layout> 

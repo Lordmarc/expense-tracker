@@ -11,7 +11,6 @@
         "Noto Color Emoji";
 }
 
-
 /* Custom CSS */
 
 /* Landing Page */
@@ -47,35 +46,74 @@
 }
 
 .form-container {
-    @apply flex justify-center items-center w-full h-full; 
+    @apply flex justify-center items-center w-full h-full;
 
-  
-form {
- @apply bg-white/70 backdrop-blur-sm p-4 rounded-lg min-w-80 flex flex-col gap-2;
-}
+    form {
+        @apply bg-white/70 backdrop-blur-sm p-4 rounded-lg min-w-80 flex flex-col gap-2;
+    }
 
-h2 {
-    @apply text-2xl text-center mb-3
-}
-a {
-    @apply text-blue-500;
-}
+    h2 {
+        @apply text-2xl text-center mb-3;
+    }
+    a {
+        @apply text-blue-500;
+    }
 
-input {
-    @apply block w-full px-3 py-2 bg-white rounded-lg 
-}
+    input {
+        @apply block w-full px-3 py-2 bg-white rounded-lg;
+    }
 
-.forgot {
-    @apply block w-full text-blue-500 text-end underline
-}
+    .forgot {
+        @apply block w-full text-blue-500 text-end underline;
+    }
 
-.btn {
-    @apply block w-full bg-white rounded px-3 py-2 cursor-pointer hover:bg-sky-100 mt-1
-}
-
-
+    .btn {
+        @apply block w-full bg-white rounded px-3 py-2 cursor-pointer hover:bg-sky-100 mt-1;
+    }
 }
 
 .content-container {
-    @apply min-h-screen bg-sky-100;
+    @apply min-h-screen bg-sky-100 flex flex-col;
+}
+
+.my-container {
+    @apply flex-grow w-full h-full p-16 flex justify-center;
+}
+
+.create-form, .edit-form {
+    @apply p-2 flex-grow h-full flex flex-col;
+
+    h2 {
+        @apply text-2xl text-gray-500 font-bold mb-2;
+    }
+
+    label {
+        @apply text-xl mb-1;
+    }
+
+    input,
+    select {
+        @apply block w-full border-[1px] border-gray-500 rounded px-2 py-1 text-gray-500 mb-2;
+    }
+}
+
+.sidebar {
+    @apply w-2xs bg-white rounded-md shadow p-3;
+
+    a {
+        @apply hover:border-b border-gray-500 transition duration-150 ease-in-out;
+    }
+}
+
+.btn-create, .btn-edit {
+    @apply rounded bg-sky-200 mt-auto py-2 hover:bg-sky-500 hover:text-white cursor-pointer transition duration-150 ease-in-out;
+}
+
+/* Table */
+table {
+    @apply table-auto w-full border-collapse border border-gray-300  ;
+}
+
+th {
+    @apply border w-24
 }

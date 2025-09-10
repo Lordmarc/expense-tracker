@@ -19,6 +19,11 @@ class ExpenseController extends Controller
         return view('expenses.index', compact('expenses'));
     }
 
+    public function dashboard() 
+    {   
+       
+        return view('expenses.dashboard');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -78,7 +83,7 @@ class ExpenseController extends Controller
 
       $expense->update($validated);
 
-      return redirect()->route('expenses.index')->with('Success', 'Expense updated!');
+      return redirect()->route('expenses.list')->with('Success', 'Expense updated!');
 
     }
 
@@ -91,6 +96,6 @@ class ExpenseController extends Controller
 
         $expense->delete();
 
-        return redirect()->route('expenses.index')->with('Success', 'Expense Deleted!');
+        return redirect()->route('expenses.list')->with('Success', 'Expense Deleted!');
     }
 }

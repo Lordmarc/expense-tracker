@@ -37,7 +37,7 @@ class AuthController extends Controller
         
         Auth::login($user);
 
-        return redirect()->route('expenses.index');
+        return redirect()->route('expenses.dashboard');
 
     }
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->route('expenses.index');
+            return redirect()->route('expenses.dashboard');
         }
 
         throw ValidationException::withMessages([

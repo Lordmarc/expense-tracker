@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Tracker</title>
-
-  @vite('resources/css/app.css')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  @vite(['resources/css/app.css', 'resources/js/sidebar.js'])
 </head>
 <body>
 <div class="content-container">
@@ -27,11 +27,35 @@
   </nav>
 </header>
 
-<div class="container">
-  {{ $slot }}
+<div class="my-container">
+  <div class="flex gap-12 flex-grow">
+    <div class="sidebar">
+    <ul class="flex flex-col gap-4">
+      <li class="px-3 py-2 shadow-md">
+        <a href="{{ route('expenses.dashboard') }}">Dashboard</a>
+      </li>
+      <x-nav-item title="Expenses">
+        <a href="{{ route('expenses.list')}}">All Expenses</a>
+        <a href="{{ route('expenses.create') }}">Add New Expense</a>
+      </x-nav-item>
+      <x-nav-item title="Categories">
+        <a href="">View Categories</a>
+        <a href="">Add Category</a>
+      </x-nav-item>
+      <x-nav-item title="Settings">
+        <a href="">Profile</a>
+      </x-nav-item>
+    </ul>
+    </div>
+    <div class="dashboard p-2 flex-grow bg-white rounded-md shadow flex flex-col gap-5">
+    {{ $slot }}
+    </div>
+  </div>
 </div>
   
 </div>
+
+
 
 </body>
 </html>

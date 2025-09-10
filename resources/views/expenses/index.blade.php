@@ -1,6 +1,6 @@
 <x-layout>
-<a href="{{ route('expenses.create') }}" class="rounded bg-white shadow-md">Create Expense</a>
-<ul>
+<h2>Expenses</h2>
+{{-- <ul>
   @foreach ($expenses as $expense)
     <li>
       <h2>{{ $expense->title }}</h2>
@@ -13,6 +13,32 @@
       </form>
     </li>
   @endforeach
-</ul>
+</ul> --}}
+
+
+<table>
+  <thead>
+    <tr class="bg-sky-300">
+      <th>Title</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ( $expenses as $expense)
+    <tr class="text-center">
+
+        <td>{{ $expense->title }}</td>
+        <td>{{ $expense->category }}</td>
+        <td>{{ $expense->amount }}</td>
+        <td>{{ $expense->date }}</td>
+        <x-action-button :expense='$expense'/>
+     
+    </tr>
+     @endforeach
+  </tbody>
+</table>
 
 </x-layout>
