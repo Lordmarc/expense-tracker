@@ -1,4 +1,4 @@
-<li class="flex flex-col hover:bg-sky-100 px-3 py-2 shadow-md">
+<li class="nav-items">
     <div class="nav-toggle flex justify-between cursor-pointer">
         <span>{{ $title }}</span>
         <span>+</span>

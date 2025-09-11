@@ -13,12 +13,16 @@
   <input type="number" step="0.01" name="amount" placeholder="Amount..." value="{{ old('amount') }}" required>
 
   <!-- Expense Category -->
-  <label for="category">Category:</label>
-  {{-- <select name="" id="">
+  <label for="category_id">Category:</label>
+  <select name="category_id" id="category_id">
+    
     <option value="" disabled selected>Select category</option>
-  </select> --}}
-  <input type="text" name="category">
+    @foreach ($categories as $category)
+      <option value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+  </select>
 
+ 
   <!-- Expense Date -->
   <label for="date">Date:</label>
   <input type="date" name="date" required>

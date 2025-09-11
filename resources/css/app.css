@@ -80,7 +80,8 @@
     @apply flex-grow w-full h-full p-16 flex justify-center;
 }
 
-.create-form, .edit-form {
+.create-form,
+.edit-form {
     @apply p-2 flex-grow h-full flex flex-col;
 
     h2 {
@@ -100,20 +101,31 @@
 .sidebar {
     @apply w-2xs bg-white rounded-md shadow p-3;
 
-    a {
+    .link-tag {
         @apply hover:border-b border-gray-500 transition duration-150 ease-in-out;
+    }
+
+    .nav-items {
+        @apply flex flex-col hover:bg-sky-100 px-3 py-2 shadow-md;
     }
 }
 
-.btn-create, .btn-edit {
+.btn-create,
+.btn-edit {
     @apply rounded bg-sky-200 mt-auto py-2 hover:bg-sky-500 hover:text-white cursor-pointer transition duration-150 ease-in-out;
 }
 
 /* Table */
 table {
-    @apply table-auto w-full border-collapse border border-gray-300  ;
+    @apply table-auto w-full border-gray-300 border-collapse ;
 }
 
 th {
-    @apply border w-24
+    @apply bg-sky-300 w-24  border-gray-500;
+
 }
+
+tbody {
+    @apply divide-y divide-gray-300
+}
+

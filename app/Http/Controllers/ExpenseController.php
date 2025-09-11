@@ -29,7 +29,8 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        return view('expenses.create');
+        $categories = auth()->user()->categories;
+        return view('expenses.create', compact('categories'));
     }
 
     /**
@@ -39,20 +40,20 @@ class ExpenseController extends Controller
     {
         $validated = $request->validate([
             'title'    => 'required|string|max:255',
-            'category' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
             'amount'   => 'required|numeric|min:0',
             'date'     => 'date|required'
         ]);
 
         $request->user()->expenses()->create($validated);
 
-        return redirect()->route('expenses.index')->with('success', 'Expense Created!');
+        return redirect()->route('expenses.list')->with('success', 'Expense Created!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Expense $expenses)
+    public function show(Expense $expense)
     {
         
         return view('expenses.show', compact('expenses'));
@@ -76,7 +77,7 @@ class ExpenseController extends Controller
 
          $validated = $request->validate([
             'title'    => 'required|string|max:255',
-            'category' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
             'amount'   => 'required|numeric|min:0',
             'date'     => 'date|required'
         ]);

@@ -31,19 +31,19 @@
   <div class="flex gap-12 flex-grow">
     <div class="sidebar">
     <ul class="flex flex-col gap-4">
-      <li class="px-3 py-2 shadow-md">
-        <a href="{{ route('expenses.dashboard') }}">Dashboard</a>
+      <li class=" hover:bg-sky-100 px-3 py-2 shadow-md flex">
+        <a href="{{ route('expenses.dashboard') }}" class="w-full">Dashboard</a>
       </li>
       <x-nav-item title="Expenses">
-        <a href="{{ route('expenses.list')}}">All Expenses</a>
-        <a href="{{ route('expenses.create') }}">Add New Expense</a>
+        <a href="{{ route('expenses.list')}}" class="link-tag">All Expenses</a>
+        <a href="{{ route('expenses.create') }}" class="link-tag">Add New Expense</a>
       </x-nav-item>
       <x-nav-item title="Categories">
-        <a href="">View Categories</a>
-        <a href="">Add Category</a>
+        <a href="{{ route('expenses.category') }}" class="link-tag">View Categories</a>
+        <a href="{{ route('expenses.createCat') }}" class="link-tag">Add Category</a>
       </x-nav-item>
       <x-nav-item title="Settings">
-        <a href="">Profile</a>
+        <a href="" class="link-tag">Profile</a>
       </x-nav-item>
     </ul>
     </div>
