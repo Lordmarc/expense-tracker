@@ -21,8 +21,12 @@ class ExpenseController extends Controller
 
     public function dashboard() 
     {   
-       
-        return view('expenses.dashboard');
+        $categories = auth()->user()
+            ->categories()
+            ->withSum('expenses', 'amount')
+            ->get();
+
+        return view('expenses.dashboard', compact('categories'));
     }
     /**
      * Show the form for creating a new resource.

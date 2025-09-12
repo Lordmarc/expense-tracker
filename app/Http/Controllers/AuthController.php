@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -32,9 +32,9 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             "password" => 'required|min:8|confirmed'
         ]);
+        $validated['password'] = Hash::make($validated['password']);
+        $user = User::create($validated); 
        
-        $user = User::create($validated);
-        
         Auth::login($user);
 
         return redirect()->route('expenses.dashboard');

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Expense Tracker</title>
+  <title>SmartTrack</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   @vite(['resources/css/app.css', 'resources/js/sidebar.js'])
 </head>
@@ -43,7 +43,7 @@
         <a href="{{ route('expenses.createCat') }}" class="link-tag">Add Category</a>
       </x-nav-item>
       <x-nav-item title="Settings">
-        <a href="" class="link-tag">Profile</a>
+        <a href="{{ route('profile.show') }}" class="link-tag">Profile</a>
       </x-nav-item>
     </ul>
     </div>

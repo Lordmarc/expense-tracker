@@ -15,7 +15,7 @@
 
     <!-- Expense Category -->
     <label for="category">Category:</label>
-    <input type="text" name="category" value="{{ $expense->category }}" required>
+    <input type="text" name="category" value="{{ $expense->category->name }}" required>
 
     <!-- Expense Date -->
     <label for="date">Date:</label>

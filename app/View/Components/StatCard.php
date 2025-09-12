@@ -14,13 +14,13 @@ class StatCard extends Component
 
     public $title;
     public $amount;
-    public $icon;
 
-    public function __construct($title, $amount, $icon=null)
+
+    public function __construct($title, $amount = null)
     {
         $this->title = $title;
         $this->amount = $amount;
-        $this->icon = $icon;
+
     }
 
     /**
