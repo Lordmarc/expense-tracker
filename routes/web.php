@@ -18,7 +18,7 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
     Route::post('/register', 'register')->name('register');
 });
 
-Route::middleware('auth')->controller(ExpenseController::class, CategoryController::class)->group(function () {
+Route::middleware('auth')->controller(ExpenseController::class)->group(function () {
     Route::get('/expenses/dashboard', 'dashboard')->name('expenses.dashboard');
     Route::get('/expenses/list', 'index')->name('expenses.list');
     Route::get('/expenses/create', 'create')->name('expenses.create');
@@ -30,9 +30,12 @@ Route::middleware('auth')->controller(ExpenseController::class, CategoryControll
 });
 
 Route::middleware('auth')->controller(CategoryController::class)->group(function () {
- Route::get('/expenses/category', 'category')->name('expenses.category');
- Route::get('/expenses/category/create', 'showCreate')->name('expenses.createCat');
- Route::post('/expenses/category/create', 'store')->name('expenses.insertCategory');
+    Route::get('/categories', 'index')->name('categories.index');                   // list categories
+    Route::get('/categories/create', 'create')->name('categories.create');          // show create form
+    Route::post('/categories', 'store')->name('categories.store');                  // save new category
+    Route::get('/categories/{category}/edit', 'edit')->name('categories.edit');     // show edit form
+    Route::put('/categories/{category}', 'update')->name('categories.update');      // update category
+    Route::delete('/categories/{category}', 'destroy')->name('categories.destroy'); // delete category
 });
 
 Route::middleware('auth')->controller(ProfileController::class)->group(function () {

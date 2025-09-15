@@ -13,8 +13,8 @@
         <tr>
           <td class="text-center">{{ $category->name }}</td>
           <td class="flex justify-center">
-            <a href=""><i class="fa-solid fa-pen text-green-500"></i></a>
-            <form action="">
+            <a href="{{ route('categories.edit', $category) }}"><i class="fa-solid fa-pen text-green-500"></i></a>
+            <form action="{{ route('categories.destroy', $category) }}" method="POST">
             @csrf
             @method('DELETE')
               <button><i class="fa-solid fa-trash text-red-500"></i></button>

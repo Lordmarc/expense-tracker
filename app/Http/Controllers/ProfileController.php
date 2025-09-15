@@ -16,7 +16,7 @@ class ProfileController extends Controller
         $userData = auth()->user();
         return view('expenses.profile', compact('userData'));
     }
-
+ 
     public function update(Request $request)
 {
     $user = auth()->user(); // ✅ ensure correct user

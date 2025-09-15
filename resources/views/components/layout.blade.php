@@ -39,8 +39,8 @@
         <a href="{{ route('expenses.create') }}" class="link-tag">Add New Expense</a>
       </x-nav-item>
       <x-nav-item title="Categories">
-        <a href="{{ route('expenses.category') }}" class="link-tag">View Categories</a>
-        <a href="{{ route('expenses.createCat') }}" class="link-tag">Add Category</a>
+        <a href="{{ route('categories.index') }}" class="link-tag">View Categories</a>
+        <a href="{{ route('categories.create') }}" class="link-tag">Add Category</a>
       </x-nav-item>
       <x-nav-item title="Settings">
         <a href="{{ route('profile.show') }}" class="link-tag">Profile</a>

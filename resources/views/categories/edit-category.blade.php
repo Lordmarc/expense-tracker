@@ -1,12 +1,14 @@
 <x-layout>
-  <div class="h-full mx-auto w-full flex justify-center items-center">
-  <form action="{{ route('expenses.insertCategory') }}" method="POST" class="create-form">
+
+ <div class="h-full mx-auto w-full flex justify-center items-center">
+  <form action="{{ route('categories.update', $category) }}" method="POST" class="create-form">
   @csrf
+  @method('put')
   <h2>Create Category</h2>
 
   <!-- Expense Category -->
   <label for="name">Category Name:</label>
-  <input type="text" name="name">
+  <input type="text" name="name" value="{{ $category->name}}">
 
     @if ($errors->any())
     <div class="bg-red-100 text-red-700 p-2 rounded mt-3">
@@ -18,10 +20,11 @@
     </div>
   @endif
 
-  <button type="submit" class="btn-create mt-auto w-full ">Create Category</button>
+  <button type="submit" class="btn-create mt-auto w-full ">Save Category</button>
 
  
   </form>
  
 </div>
+
 </x-layout>

@@ -9,4 +9,4 @@
     @method('DELETE')
       <button type="submit"><i class="fa-solid fa-trash text-red-500 cursor-pointer"></i></button>
   </form>
-</td>
+</td> 

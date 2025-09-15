@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class ExpenseController extends Controller
 {
     use AuthorizesRequests;
-    /**
+    /** 
      * Display a listing of the resource.
      */
     public function index()
