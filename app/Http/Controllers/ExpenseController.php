@@ -88,7 +88,7 @@ class ExpenseController extends Controller
 
       $expense->update($validated);
 
-      return redirect()->route('expenses.list')->with('Success', 'Expense updated!');
+      return redirect()->route('expenses.list')->with('success', 'Expense updated successfully!');
 
     }
 
@@ -101,6 +101,6 @@ class ExpenseController extends Controller
 
         $expense->delete();
 
-        return redirect()->route('expenses.list')->with('Success', 'Expense Deleted!');
+        return redirect()->route('expenses.list')->with('success', 'Expense Deleted!');
     }
 }

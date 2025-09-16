@@ -26,6 +26,38 @@
      @endforeach
   </tbody>
 </table>
+
+@if (session('success'))
+ <script>
+  Swal.fire({
+    icon: 'success',
+    title: 'Success',
+    text: "{{ session('success') }}"
+    confirmButtonColor: '#0e62e8',
+  })
+ </script>
+@endif
+
+<script>
+document.querySelectorAll('.delete-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This action cannot be undone!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        })
+    });
+});
+</script>
 </div>
 
 

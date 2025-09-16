@@ -14,7 +14,7 @@ class ProfileController extends Controller
     public function show ()
     {
         $userData = auth()->user();
-        return view('expenses.profile', compact('userData'));
+        return view('profile.profile', compact('userData'));
     }
  
     public function update(Request $request)

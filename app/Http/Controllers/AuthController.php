@@ -37,7 +37,7 @@ class AuthController extends Controller
        
         Auth::login($user);
 
-        return redirect()->route('expenses.dashboard');
+        return redirect()->route('expenses.dashboard')->with('success', 'Account created successfully!');
 
     }
 
@@ -52,14 +52,14 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->route('expenses.dashboard');
+            return redirect()->route('expenses.dashboard')->with('success', 'Login Successfully!');
         }
 
         throw ValidationException::withMessages([
             'credentials' => 'Sorry, incorrect credentials'
         ]);
     }
-
+ 
     public function logout (Request $request) 
     {
         Auth::logout();

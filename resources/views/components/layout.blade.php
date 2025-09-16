@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SmartTrack</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   @vite(['resources/css/app.css', 'resources/js/sidebar.js'])
 </head>
 <body>
+@if (session('success'))
+  <script>
+    Swal.fire({
+      icon:'success',
+      title: 'Success',
+      text: "{{ session('success') }}",
+      confirmButtonColor: '#3085d6'
+    })
+  </script>
+@endif
 <div class="content-container">
   <header>
   <nav class="bg-white shadow-md flex items-center justify-end gap-2 p-3">

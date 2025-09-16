@@ -134,4 +134,7 @@ th {
 tbody {
     @apply divide-y divide-gray-300
 }
+td{
+    @apply px-2 py-1;
+}
 

@@ -40,4 +40,15 @@
   </form>
 </div>
 
+@if (session('success'))
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: "{{ session('success') }}",
+      confirmButtonColor: '#0e62e8'
+    })
+  </script>
+@endif
+
 </x-layout>
