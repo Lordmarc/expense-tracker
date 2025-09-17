@@ -23,7 +23,7 @@
                 <p>Login</p>
             </a>
     
-   
+                
             <a href="{{ route('show.register') }}" class="btn-user">
                 <p>Register</p>
             </a>

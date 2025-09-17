@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  @vite(['resources/css/app.css', 'resources/js/sidebar.js'])
+  @vite(['resources/css/app.css', 'resources/js/sidebar.js', 'resources/js/function.js'])
 </head>
 <body>
 @if (session('success'))
@@ -23,26 +23,39 @@
 <div class="content-container">
   <header>
   <nav class="bg-white shadow-md flex items-center justify-end gap-2 p-3">
- 
+  
+
   @auth
     <h2 class="mr-auto text-2xl text-sky-400 font-bold">Smart<span class="text-sky-700">Track</span></h2>
-    <p>{{ Auth::user()->name }}</p>
 
-    <form action="{{ route('logout') }}" method="POST" class="group rounded px-3 py-2 cursor-pointer bg-sky-200 hover:bg-sky-100">
-    @csrf
+    <p class="hidden md:block">{{ Auth::user()->name }}</p>
+    <form action="{{ route('logout') }}" method="POST" class="hidden md:block group rounded px-3 py-2 cursor-pointer bg-sky-200 hover:bg-sky-100">
+      @csrf
     
       <button type="submit" class="group-hover:text-blue-700 cursor-pointer" >
       Logout
       </button>
     </form>
+    
+    <div class="toggle-menu md:hidden">
+          <i class="fa-solid fa-bars "></i>
+    </div>  
+
+    <div class="menu hidden bg-white/35 backdrop-blur-sm md:static justify-center items-center gap-2 absolute left-0 top-[55px] w-full">
+    
+      <x-sidebar/>
+     
+    </div>
+   
     @endauth
   </nav>
 </header>
 
 <div class="my-container">
   <div class="flex gap-12 flex-grow">
-    <div class="sidebar">
+     <div class="sidebar">
     <ul class="flex flex-col gap-4">
+    
       <li class=" hover:bg-sky-100 px-3 py-2 shadow-md flex">
         <a href="{{ route('expenses.dashboard') }}" class="w-full">Dashboard</a>
       </li>
@@ -57,9 +70,12 @@
       <x-nav-item title="Settings">
         <a href="{{ route('profile.show') }}" class="link-tag">Profile</a>
       </x-nav-item>
+
+
+    </form>
     </ul>
     </div>
-    <div class="dashboard p-2 flex-grow bg-white rounded-md shadow flex flex-col gap-5">
+    <div class="dashboard p-2 flex-grow bg-white rounded-md shadow flex flex-col gap-5 overflow-y-auto">
     {{ $slot }}
     </div>
   </div>
