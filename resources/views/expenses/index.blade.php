@@ -2,6 +2,26 @@
 <h2 class="text-2xl text-gray-500 font-bold">Expenses</h2>
 
 <div class="h-full overflow-y-auto border border-gray-300 rounded">
+<div class="flex justify-end my-2">
+  <form method="GET" class="flex gap-2 mb-4">
+    <input 
+        type="date" 
+        name="start_date" 
+        value="{{ $start_date }}" 
+        class="border rounded p-1"
+    >
+
+    <input 
+        type="date" 
+        name="end_date" 
+        value="{{ $end_date }}" 
+        class="border rounded p-1"
+    >
+
+    <button class="bg-sky-500 text-white px-3 py-1 rounded">Filter</button>
+</form>
+</div>
+
   <table>
   <thead>
     <tr class="bg-sky-300">

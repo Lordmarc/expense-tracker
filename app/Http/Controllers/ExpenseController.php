@@ -13,21 +13,59 @@ class ExpenseController extends Controller
     /** 
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $expenses = auth()->user()->expenses()->latest()->get();
-        return view('expenses.index', compact('expenses'));
+        $user = auth()->user();
+
+        $query = $user->expenses()->latest();
+
+        if ($request->filled('start_date') && $request->filled('end_date'))
+        {
+            $query->whereBetween('date', [$request->start_date, $request->end_date]);
+        }
+
+        $expenses = $query->get();
+
+        return view('expenses.index', [
+            'expenses' => $expenses,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
     }
+
+    
 
     public function dashboard() 
-    {   
-        $categories = auth()->user()
-            ->categories()
-            ->withSum('expenses', 'amount')
-            ->get();
+{   
+    $user = auth()->user();
 
-        return view('expenses.dashboard', compact('categories'));
-    }
+    $totalExpense = $user->expenses()
+        ->whereMonth('date', now()->month)
+        ->whereYear('date', now()->year)
+        ->sum('amount');
+
+    $topCategoryExpenses = $user->categories()
+    ->withSum(['expenses as total' => function ($query){
+        $query->whereMonth('date', now()->month)
+              ->whereYear('date', now()->year);
+    }], 'amount')
+    ->orderByDesc('total')
+    ->first();
+
+    $categories = $user->categories()
+        ->withSum(['expenses' => function ($query) {
+            $query->whereMonth('date', now()->month)
+                  ->whereYear('date', now()->year);
+        }], 'amount')
+        ->get();
+
+    return view('expenses.dashboard', [
+        'totalExpenses' => $totalExpense,
+        "topCategory"   => $topCategoryExpenses,
+        "categories"    => $categories
+    ]);
+}
+
     /**
      * Show the form for creating a new resource.
      */
