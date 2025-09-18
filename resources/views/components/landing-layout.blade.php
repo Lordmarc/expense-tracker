@@ -6,7 +6,7 @@
   <title>SmartTrack</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  @vite('resources/css/app.css')
+   @vite(['resources/css/app.css', 'resources/js/function.js'])
 </head>
 <body>
 

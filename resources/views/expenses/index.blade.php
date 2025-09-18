@@ -1,28 +1,34 @@
 <x-layout>
 <h2 class="text-2xl text-gray-500 font-bold">Expenses</h2>
 
-<div class="h-full overflow-y-auto border border-gray-300 rounded">
-<div class="flex justify-end my-2">
-  <form method="GET" class="flex gap-2 mb-4">
-    <input 
-        type="date" 
-        name="start_date" 
-        value="{{ $start_date }}" 
-        class="border rounded p-1"
-    >
+<div class="flex flex-col w-full h-full border border-gray-300 rounded">
 
-    <input 
-        type="date" 
-        name="end_date" 
-        value="{{ $end_date }}" 
-        class="border rounded p-1"
-    >
+<div class="flex justify-end mb-2 md:mb-0 w-full">
+  <form method="GET" class="flex flex-col md:flex-row gap-2 mb-0 md:mb-4 md:w-auto w-full">
+    <div class="flex gap-2 w-full md:w-auto">
+      <input 
+          type="date" 
+          name="start_date" 
+          value="{{ $start_date }}" 
+          class="border rounded p-1 flex-1 md:flex-none min-w-20"
+      >
+      <span class="self-center">-</span>
+      <input 
+          type="date" 
+          name="end_date" 
+          value="{{ $end_date }}" 
+          class="border rounded p-1 flex-1 md:flex-none min-w-20"
+      >
+    </div>
 
-    <button class="bg-sky-500 text-white px-3 py-1 rounded">Filter</button>
-</form>
+    <button class="bg-sky-500 text-white px-3 py-1 rounded md:w-auto w-full">
+      Filter
+    </button>
+  </form>
 </div>
 
-  <table>
+<div class="overflow-x-auto h-full">
+<table>
   <thead>
     <tr class="bg-sky-300">
       <th>Title</th>
@@ -47,6 +53,8 @@
   </tbody>
 </table>
 
+</div>
+  
 @if (session('success'))
  <script>
   Swal.fire({

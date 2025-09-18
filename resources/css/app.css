@@ -146,5 +146,5 @@ td{
 }
 
 .dashboard {
-    @apply max-h-[450px] md:max-h-none;
+    @apply max-h-[450px] md:max-h-none min-w-[100px];
 }

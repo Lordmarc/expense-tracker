@@ -52,7 +52,7 @@
 </header>
 
 <div class="my-container">
-  <div class="flex gap-12 flex-grow">
+  <div class="flex gap-12 flex-grow min-w-20">
      <div class="sidebar">
     <ul class="flex flex-col gap-4">
     

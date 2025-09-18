@@ -1,10 +1,10 @@
 <x-layout>
-<div class="h-full mx-auto w-full flex justify-center items-center">
+<div class="h-auto mx-auto w-full flex justify-center items-center">
    <form action="{{ route('profile.update', $userData->id) }}" method="POST" class="edit-form">
     @csrf
     
     
-    <h2>Edit Expense</h2>
+    <h2>Edit Profile</h2>
 
     <!-- User Name -->
     <label for="name">Name:</label>
